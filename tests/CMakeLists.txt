@@ -1,0 +1,17 @@
+macro(cy_test)
+  # multiple sources
+  if (${ARGC} GREATER 1)
+    set(test_name "${ARGV0}")
+    set(src ${ARGN})
+    list(REMOVE_AT src 0)
+  else()
+    set(test_name "test-${ARGV0}")
+    set(src "${ARGV0}.c")
+  endif()
+  message(STATUS "Adding test ${test_name} (${src})")
+  add_executable(${test_name} ${src})
+  target_link_libraries(${test_name} curvy)
+  add_test(NAME ${test_name} COMMAND ${test_name})
+endmacro()
+
+cy_test(tween)
