@@ -1,3 +1,4 @@
+#include <curvy/easing/linear.h>
 #include "tween-private.h"
 #include "curvy/control-point.h"
 
@@ -49,6 +50,8 @@ void cy_tween_render(struct cy_tween * tween, float duration) {
 
   /* converts the passed duration into a value between 0 and to_cp->during, considering from_cp stacked duration values */
   float current_duration = duration - (to_i == 0 ? 0 : tween->to[to_i -1].stacked_duration);
-  tween->value = to->via(current_duration / total_duration, from_value, to->value);
+  cy_easing_fn via = to->via;
+  if (to->via == NULL) via = cy_linear;
+  tween->value = via(current_duration / total_duration, from_value, to->value);
   tween->current_duration = duration;
 }

@@ -98,3 +98,23 @@ cd build/
 cmake ..
 make
 ```
+
+## Running tests
+
+Curvy tests links against
+[Criterion](http://github.com/Snaipe/Criterion) so you need it installed
+in your system if you intend to execute tests. Please refer to it's
+manual on how to install it.
+
+To build test executables, you need to set the CMake variable
+`CURVY_ENABLE_TESTING` to true when running `cmake`:
+
+```
+cmake -DCURVY_ENABLE_TESTING=true ...
+```
+
+To run the tests, execute the `tests` target:
+
+```
+make test
+```
