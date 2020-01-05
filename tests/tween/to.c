@@ -55,3 +55,16 @@ Test(tween, to_maintains_current_duration) {
   cy_to(&tween, 10.0f, mock_easing_linear, 100.0f);
   cr_assert(tween.current_duration == 50);
 }
+
+Test(tween, to_maintains_current_value) {
+  struct cy_tween tween = {
+      .from = 0
+  };
+
+  cy_to(&tween, 100, mock_easing_linear, 100);
+  cr_assert_eq(tween.value, tween.from);
+
+  cy_seek(&tween, 50);
+  cy_to(&tween, 200, mock_easing_linear, 100);
+  cr_assert_eq(tween.value, 50);
+}

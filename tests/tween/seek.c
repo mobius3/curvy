@@ -40,3 +40,14 @@ Test(tween, seek_navigates_control_points) {
   cy_seek(&tween, 200.0f);
   cr_assert(tween.value == tween.to[1].value);
 }
+
+Test(tween, seek_correctly_interpolates_through_easing_fn) {
+  struct cy_tween tween = {
+      .from = 0,
+      .to = {
+          { 100, .via = mock_easing_linear, .during = 100 }
+      }
+  };
+  cy_seek(&tween, 50);
+  cr_assert_eq(tween.value, 50.0f);
+}

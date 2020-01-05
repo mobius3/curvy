@@ -1,6 +1,10 @@
 #include <criterion/criterion.h>
 #include "curvy/tween.h"
 
+static float mock_easing_linear(float p, float start, float end) {
+  return (end-start) * p + start;
+}
+
 /* test cy_from */
 Test(tween, from_initializes_tween) {
   struct cy_tween tween = {};
@@ -23,4 +27,14 @@ Test(tween, from_maintains_current_duration) {
 
   cy_from(&tween, 0.5f);
   cr_assert(tween.current_duration == 50);
+}
+
+Test(tween, from_corrects_value) {
+  struct cy_tween tween = {};
+  cy_from(&tween, 0);
+  cy_to(&tween, 100, mock_easing_linear, 100);
+  cr_assert_eq(tween.value, 0.0f);
+
+  cy_from(&tween, -100);
+  cr_assert_eq(tween.value, -100);
 }

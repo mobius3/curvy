@@ -42,3 +42,14 @@ Test(tween, step_navigates_control_points) {
   cy_step(&tween, 100.0f - 0.001f);
   cr_assert(tween.value == tween.to[1].value);
 }
+
+Test(tween, step_correctly_interpolates_through_easing_fn) {
+  struct cy_tween tween = {
+      .from = 0,
+      .to = {
+          { 100, .via = mock_easing_linear, .during = 100 }
+      }
+  };
+  cy_step(&tween, 50);
+  cr_assert_eq(tween.value, 50.0f);
+}
