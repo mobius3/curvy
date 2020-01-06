@@ -38,3 +38,24 @@ Test(tween, from_corrects_value) {
   cy_from(&tween, -100);
   cr_assert_eq(tween.value, -100);
 }
+
+Test(tween, from_keeps_finished_state) {
+  struct cy_tween tween = {
+      .from = 0,
+      .to = {
+          { .value = 1, .during = 100 }
+      }
+  };
+
+  cy_seek(&tween, 0);
+  cr_expect_eq(cy_finished(&tween), CY_FALSE);
+
+  cy_from(&tween, -100);
+  cr_assert_eq(cy_finished(&tween), CY_FALSE);
+
+  cy_seek(&tween, 100.0f);
+  cr_expect_eq(cy_finished(&tween), CY_TRUE);
+
+  cy_from(&tween, 0);
+  cr_assert_eq(cy_finished(&tween), CY_TRUE);
+}
