@@ -68,3 +68,18 @@ Test(tween, to_maintains_current_value) {
   cy_to(&tween, 200, mock_easing_linear, 100);
   cr_assert_eq(tween.value, 50);
 }
+
+Test(tween, finished_is_false_after_to_is_called) {
+  struct cy_tween tween = {
+      .from = 0
+  };
+
+  cy_to(&tween, 100, mock_easing_linear, 100);
+  cr_assert_eq(cy_finished(&tween), CY_FALSE);
+
+  cy_seek(&tween, 100.0f);
+  cr_expect_eq(cy_finished(&tween), CY_TRUE);
+
+  cy_to(&tween, 100, mock_easing_linear, 100);
+  cr_assert_eq(cy_finished(&tween), CY_FALSE);
+}
