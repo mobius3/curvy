@@ -2,7 +2,6 @@
 #define CURVY_H
 
 #include "curvy/tween.h"
-#include "curvy/memory.h"
 
 #if __cpluplus
 extern "C" {

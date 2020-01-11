@@ -24,6 +24,8 @@ if (CRITERION_FOUND)
   cy_test(test-tween-step tween/step.c)
   cy_test(test-tween-seek tween/seek.c)
   cy_test(test-tween-jump tween/jump.c)
+
+  cy_test(test-all-easings easing/all-easings.c easing/test-easing-fn.c easing/test-easing-fn.h)
 else()
   message(STATUS "Criterion was not found. Tests disabled.")
 endif()
