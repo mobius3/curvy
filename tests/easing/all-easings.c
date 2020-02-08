@@ -3,6 +3,7 @@
 #include <curvy/easing/bounce.h>
 #include <curvy/easing/circular.h>
 #include <curvy/easing/cubic.h>
+#include <curvy/easing/elastic.h>
 
 #include "criterion/criterion.h"
 #include "test-easing-fn.h"
@@ -95,4 +96,26 @@ Test(easing, cubic_out_easing_return_expected_values) {
       expected[] = { 0.000000f, 0.271000f, 0.488000f, 0.657000f, 0.784000f, 0.875000f,
                      0.936000f, 0.973000f, 0.992000f, 0.999000f, 1.000000f };
   test_easing_fn(cy_cubic_out, 0, 1, at, expected, 11);
+}
+
+
+Test(easing, elastic_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.021572f, 0.071311f, 0.213959f, 0.536581f, 0.216257f,
+                     1.152521f, 1.123724f, 1.051097f, 1.017306f, 1.000000f };
+  test_easing_fn(cy_elastic, 0, 1, at, expected, 11);
+}
+
+Test(easing, elastic_in_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.000977f, -0.003383f, -0.003906f, 0.013532f, 0.015625f,
+                    -0.054127f, -0.062500f, 0.216506f, 0.250000f, 1.000000f };
+  test_easing_fn(cy_elastic_in, 0, 1, at, expected, 11);
+}
+
+Test(easing, elastic_out_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 1.250000f, 1.125000f, 0.875000f, 1.031250f, 1.015625f,
+                     0.984375f, 1.003906f, 1.001953f, 0.998047f, 1.000000f };
+  test_easing_fn(cy_elastic_out, 0, 1, at, expected, 11);
 }
