@@ -8,6 +8,7 @@
 #include <curvy/easing/quadratic.h>
 #include <curvy/easing/quartic.h>
 #include <curvy/easing/quintic.h>
+#include <curvy/easing/sinusoidal.h>
 
 #include "criterion/criterion.h"
 #include "test-easing-fn.h"
@@ -206,4 +207,25 @@ Test(easing, quintic_out_easing_return_expected_values) {
       expected[] = { 0.000000f, 0.409510f, 0.672320f, 0.831930f, 0.922240f, 0.968750f,
                      0.989760f, 0.997570f, 0.999680f, 0.999990f, 1.000000f };
   test_easing_fn(cy_quintic_out, 0, 1, at, expected, 11);
+}
+
+Test(easing, sinusoidal_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.024472f, 0.095491f, 0.206107f, 0.345492f, 0.500000f,
+                     0.654509f, 0.793893f, 0.904509f, 0.975528f, 1.000000f };
+  test_easing_fn(cy_sinusoidal, 0, 1, at, expected, 11);
+}
+
+Test(easing, sinusoidal_in_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.012312f, 0.048943f, 0.108993f, 0.190983f, 0.292893f,
+                     0.412215f, 0.546009f, 0.690983f, 0.843566f, 1.000000f };
+  test_easing_fn(cy_sinusoidal_in, 0, 1, at, expected, 11);
+}
+
+Test(easing, sinusoidal_out_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.156434f, 0.309017f, 0.453991f, 0.587785f, 0.707107f,
+                     0.809017f, 0.891007f, 0.951057f, 0.987688f, 1.000000f };
+  test_easing_fn(cy_sinusoidal_out, 0, 1, at, expected, 11);
 }
