@@ -5,6 +5,7 @@
 #include <curvy/easing/cubic.h>
 #include <curvy/easing/elastic.h>
 #include <curvy/easing/exponential.h>
+#include <curvy/easing/quadratic.h>
 
 #include "criterion/criterion.h"
 #include "test-easing-fn.h"
@@ -140,4 +141,25 @@ Test(easing, exponential_out_easing_return_expected_values) {
       expected[] = { 0.000000f, 0.500000f, 0.750000f, 0.875000f, 0.937500f, 0.968750f,
                      0.984375f, 0.992188f, 0.996094f, 0.998047f, 0.999023f };
   test_easing_fn(cy_exponential_out, 0, 1, at, expected, 11);
+}
+
+Test(easing, quadratic_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.020000f, 0.080000f, 0.180000f, 0.320000f, 0.500000f,
+                     0.680000f, 0.820000f, 0.920000f, 0.980000f, 1.000000f };
+  test_easing_fn(cy_quadratic, 0, 1, at, expected, 11);
+}
+
+Test(easing, quadratic_in_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.010000f, 0.040000f, 0.090000f, 0.160000f, 0.250000f,
+                     0.360000f, 0.490000f, 0.640000f, 0.810000f, 1.000000f };
+  test_easing_fn(cy_quadratic_in, 0, 1, at, expected, 11);
+}
+
+Test(easing, quadratic_out_easing_return_expected_values) {
+  float at[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f },
+      expected[] = { 0.000000f, 0.190000f, 0.360000f, 0.510000f, 0.640000f, 0.750000f,
+                     0.840000f, 0.910000f, 0.960000f, 0.990000f, 1.000000f };
+  test_easing_fn(cy_quadratic_out, 0, 1, at, expected, 11);
 }
