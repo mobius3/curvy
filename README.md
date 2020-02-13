@@ -7,7 +7,7 @@ animations for their software.
 It has:
 
 - Small, clear and declarative-style APIs
-- Many builtin easing functions
+- Many built-in easing functions
 - Multi-point interpolation
 - No external dependencies
 - Zero allocations
@@ -113,7 +113,7 @@ To build test executables, you need to set the CMake variable
 cmake -DCURVY_ENABLE_TESTING=true ...
 ```
 
-To run the tests, execute the `tests` target:
+To run the tests, execute the `test` target:
 
 ```
 make test
