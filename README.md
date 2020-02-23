@@ -42,7 +42,7 @@ Both are valid ways and result in the same behavior. You can add up to
 `CURVY_MAX_CONTROL_POINTS` to the desired number when compiling the
 library)
 
- **++Important!++**
+ **Important!**
 
  Initializing the structure **is mandatory**. This means you can either
  use the empty-braces initializer (as above), or `memset` the struct to
@@ -110,11 +110,7 @@ To build test executables, you need to set the CMake variable
 `CURVY_ENABLE_TESTING` to true when running `cmake`:
 
 ```
-cmake -DCURVY_ENABLE_TESTING=true ...
+cmake -DCURVY_BUILD_TESTS=true ...
 ```
 
-To run the tests, execute the `test` target:
-
-```
-make test
-```
+To run the tests, execute the `test` target.
