@@ -29,7 +29,7 @@ typedef float (*cy_tween_callback)(struct cy_tween * tween, float value);
  * All fields in this structure must be considered **private**, except when initializing. Changing its
  * fields after the structure has been initialized can result in unexpected behavior.
  *
- * This structure, when used, MUST BE either zeroed or initializing. Using this structure uninitialized WILL
+ * This structure, when used, MUST BE either zeroed or initialized. Using this structure uninitialized WILL
  * result in undefined behavior and potentially crashes.
  *
  * To initialize an empty `struct cy_tween` you can either use `memset` or initialize to an empty object:
