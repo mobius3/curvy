@@ -24,31 +24,37 @@ struct cy_tween;
 typedef float (*cy_tween_callback)(struct cy_tween * tween, float value);
 
 /**
- * @brief Tweening main structure. It holds all necessary information and control points to interpolate.
- *
- * All fields in this structure must be considered **private**, except when initializing. Changing its
- * fields after the structure has been initialized can result in unexpected behavior.
- *
- * This structure, when used, MUST BE either zeroed or initialized. Using this structure uninitialized WILL
- * result in undefined behavior and potentially crashes.
- *
- * To initialize an empty `struct cy_tween` you can either use `memset` or initialize to an empty object:
- *    // both below are equivalent
- *    struct cy_tween tween = {}; // initializes all fields to zero
- *    memset(&tween, 0, sizeof(tween)); // uses memset to zero all fields
- *
- * You can also, when using [struct initialization](https://en.cppreference.com/w/c/language/struct_initialization),
- * declare `from` and `to` values:
- *    struct cy_tween tween = {
- *      .from = 0.0f,
- *      .to = { 1.0f, .via = cy_linear, .during = 100 }
- *    };
- * All other fields will be initialized to zero.
- *
- * @sa cy_from
- * @sa cy_to
- * @sa cy_value
- */
+ @brief Tweening main structure. It holds all necessary information and control points to interpolate.
+
+ All fields in this structure must be considered **private**, except when initializing. Changing its
+ fields after the structure has been initialized can result in unexpected behavior.
+
+ This structure, when used, MUST BE either zeroed or initialized. Using this structure uninitialized WILL
+ result in undefined behavior and potentially crashes.
+
+ To initialize an empty `struct cy_tween` you can either use `memset` or initialize to an empty object:
+
+ @code
+ // both bellow are equivalent
+ struct cy_tween tween = {}; // initializes all fields to zero
+ memset(&tween, 0, sizeof(tween)); // uses memset to zero all fields
+ @endcode
+
+ You can also, when using [struct initialization](https://en.cppreference.com/w/c/language/struct_initialization),
+ declare `from` and `to` values:
+
+ @code
+ struct cy_tween tween = {
+   .from = 0.0f,
+   .to = { 1.0f, .via = cy_linear, .during = 100 }
+ };
+ @endcode
+ All other fields will be initialized to zero.
+
+ @sa cy_from
+ @sa cy_to
+ @sa cy_value
+*/
 struct cy_tween {
   float from;
   uint16_t to_count;
