@@ -14,8 +14,6 @@ macro(cy_test)
   add_test(NAME ${test_name} COMMAND ${test_name})
 endmacro()
 
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../cmake-modules)
-
 find_package(Criterion QUIET)
 if (CRITERION_FOUND)
   cy_test(test-tween tween/tween.c)
