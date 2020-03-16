@@ -33,7 +33,7 @@ add_custom_target(doxygen ALL DEPENDS ${CURVY_DOXYGEN_INDEX})
 
 # Sphinx stuff
 set(CURVY_SPHINX_SOURCE ${CMAKE_CURRENT_SOURCE_DIR})
-set(CURVY_SPHINX_OUT ${CMAKE_CURRENT_BINARY_DIR}/sphinx)
+set(CURVY_SPHINX_OUT ${CMAKE_CURRENT_BINARY_DIR}/html)
 set(CURVY_SPHINX_INDEX ${CURVY_SPHINX_OUT}/index.html)
 
 add_custom_command(OUTPUT ${CURVY_SPHINX_INDEX}
@@ -50,3 +50,6 @@ add_custom_command(OUTPUT ${CURVY_SPHINX_INDEX}
 
 add_custom_target(sphinx ALL DEPENDS ${CURVY_SPHINX_INDEX})
 add_custom_target(api-docs ALL DEPENDS sphinx)
+
+include (GNUInstallDirs)
+install(DIRECTORY ${CURVY_SPHINX_OUT} DESTINATION ${CMAKE_INSTALL_DOCDIR})
