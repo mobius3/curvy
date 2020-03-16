@@ -3,6 +3,8 @@
 #include "curvy/control-point.h"
 #include "tween-private.h"
 
+#include <stdint.h>
+
 struct cy_tween * cy_from(struct cy_tween * tween, float value) {
   tween->from = value;
   cy_seek(tween, tween->current_duration);

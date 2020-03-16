@@ -13,8 +13,6 @@ set(CURVY_PUBLIC_HEADERS
 
 add_library(
   curvy
-  control-point.c
-  curvy.c
   tween.c
   tween-private.c
   tween-private.h

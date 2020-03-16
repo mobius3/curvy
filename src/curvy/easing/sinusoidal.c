@@ -1,5 +1,5 @@
 #include "curvy/easing/sinusoidal.h"
-#import <math.h>
+#include <math.h>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846264338327950288

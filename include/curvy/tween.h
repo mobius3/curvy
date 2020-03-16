@@ -4,7 +4,9 @@
 #include "curvy/curvy-export.h"
 #include "curvy/control-point.h"
 #include "curvy/boolean.h"
+
 #include <stdlib.h>
+#include <inttypes.h>
 
 #if __cplusplus
 extern "C" {
