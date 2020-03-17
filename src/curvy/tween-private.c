@@ -10,8 +10,8 @@ struct cy_control_point * cy_tween_get_next_cp(struct cy_tween * tween) {
   return &tween->to[tween->to_count - 1];
 }
 
-size_t cy_tween_start_cps(struct cy_tween * tween) {
-  size_t i = 0;
+uint16_t cy_tween_start_cps(struct cy_tween * tween) {
+  uint16_t i = 0;
   for (i = 0; i < CURVY_MAX_CONTROL_POINTS; i++) {
     struct cy_control_point * cp = &tween->to[i];
     if (cp->via == NULL && cp->during == 0.0f && cp->value == 0 && cp->stacked_duration == 0) break;
