@@ -33,6 +33,7 @@ extensions = [
 ]
 
 breathe_default_project = 'curvy'
+breathe_doxygen_config_options = {'EXCLUDE_SYMBOLS': 'CURVY_EXPORT'}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = []

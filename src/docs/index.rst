@@ -1,13 +1,10 @@
-Welcome to Curvy's documentation!
-=================================
+Curvy
+=====
+ .. toctree::
+    :maxdepth: 2
+    :caption: Contents:
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+    introduction
+    tween-structure
+    functions
+    

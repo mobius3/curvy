@@ -44,6 +44,9 @@ add_custom_command(OUTPUT ${CURVY_SPHINX_INDEX}
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
   DEPENDS
     index.rst
+    introduction.rst
+    tween-structure.rst
+    functions.rst
     ${CURVY_DOXYGEN_INDEX}
   MAIN_DEPENDENCY ${CURVY_SPHINX_SOURCE}/conf.py
   COMMENT "Generating HTML docs with Sphinx")
