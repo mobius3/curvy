@@ -53,9 +53,6 @@ typedef float (*cy_tween_callback)(struct cy_tween * tween, float value);
  @endcode
  All other fields will be initialized to zero.
 
- @sa cy_from
- @sa cy_to
- @sa cy_value
 */
 struct cy_tween {
   float from;
