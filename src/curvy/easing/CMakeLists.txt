@@ -15,6 +15,7 @@ set(CURVY_EASING_PUBLIC_HEADERS
   ${I}/curvy/easing/quartic.h
   ${I}/curvy/easing/quintic.h
   ${I}/curvy/easing/sinusoidal.h
+  ${I}/curvy/easings.h
   ${CMAKE_CURRENT_BINARY_DIR}/curvy/easing/curvy-easing-export.h
 )
 
