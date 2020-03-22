@@ -81,6 +81,30 @@ struct cy_tween {
  *          considering the current interpolation progress
  */
 extern CURVY_EXPORT struct cy_tween * cy_from(struct cy_tween * tween, float value);
+
+/**
+ * @brief Adds a new value target for the tween to reach
+ * @details Calling this function adds a new value target ("control point") to be reached when interpolating. You can add up to
+ *          `CURVY_MAX_CONTROL_POINTS` (which is defined to 32 by default), each with its own easing and duration.
+ *
+ * **Example:**
+ *
+ * *Adds three control points for a tween:*
+ * @code
+ * struct cy_tween t = {};
+ * cy_from(&t, 0.0f);
+ * cy_to(&t, 1.0f, cy_linear, 100.0f);
+ * cy_to(&t, 2.0f, cy_circular, 100.0f);
+ * cy_to(&t, 0.0f, cy_back_out, 200.0f);
+ * @endcode
+ *
+ * @param tween The `struct cy_tween` value to change
+ * @param value A starting value to set
+ * @param via The easing function to be used when interpolating
+ * @param during How many steps required to reach target value
+ * @return @p tween
+ * @warning Adding another target *after* calling any of cy_seek, cy_step or cy_jump will recalculate tween current value
+ */
 extern CURVY_EXPORT struct cy_tween * cy_to(struct cy_tween * tween, float value, cy_easing_fn via, float during);
 
 extern CURVY_EXPORT float cy_seek(struct cy_tween * tween, float seek_duration);
