@@ -9,14 +9,19 @@
  * animations for their software.
  *
  * It has:
-*
-* - Small, clear and declarative-style APIs
-* - Many built-in easing functions
-* - Multi-point interpolation
-* - No external dependencies
-* - Zero allocations
-* - Tween stepping, seeking and jumping
-* - Support for step, seek and jump callbacks
+ *
+ * - Small, clear and declarative-style APIs
+ * - Many built-in easing functions
+ * - Multi-point interpolation
+ * - No external dependencies
+ * - Zero allocations
+ * - Tween stepping, seeking and jumping
+ * - Support for step, seek and jump callbacks
+ *
+ * Good starting points:
+ *
+ * - The `cy_tween` structure
+ * - The <a href="modules.html">modules page</a> has a list of easings and all tween-related functions.
  *
  * This is it's API documentation.
  */
