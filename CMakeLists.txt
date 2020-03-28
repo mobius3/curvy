@@ -14,6 +14,7 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
 option(CURVY_BUILD_TESTS "Build and run test code in tests/" OFF)
 option(CURVY_BUILD_DOCS "Generate project documentation using Doxygen" OFF)
+option(CURVY_BUILD_EXAMPLES "Build example code. Needs SDL2 to be discoverable" OFF)
 
 if (NOT APPLE)
   set(CMAKE_INSTALL_RPATH $ORIGIN)

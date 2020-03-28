@@ -10,3 +10,7 @@ endif()
 if (CURVY_BUILD_TESTS)
   add_subdirectory(tests)
 endif()
+
+if (CURVY_BUILD_EXAMPLES)
+  add_subdirectory(examples)
+endif()
